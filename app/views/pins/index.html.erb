@@ -1,14 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 
-<div class="container-fluid">
+<div class="container">
 <h1>Pins</h1>
-  <% @pins.each do |pin| %>
+  
 
-          <div class="col-md-3 float-left">
-          <div class="img-thumbnail">
-          <%= pin.description %>
-          <img src="<%= pin.photo %>" class='img-fluid'>
+      <div class="card-columns">
+        <% @pins.each do |pin| %>
+          <div class="card fluid">
+            <a href="#" data-toggle="modal" data-target="#exampleModal"><img src="<%= pin.photo %>" class='card-img-top'></a>
+            <div class="card-body">
+                <h5 class="card-title"><%= pin.name %></h5>
+   
+                <%= pin.description %>
+            </div>
+
+          
             <div class="buttons" style="margin-top:10px; margin-bottom:10px">
               <%= link_to 'Show', pin, :class => 'btn btn-danger' %>
               <%= link_to 'Edit', edit_pin_path(pin), :class => 'btn btn-danger' %>
@@ -20,10 +27,22 @@
 
           </div>
 
-    </div>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <button type="button" class="close mr-4 mt-4" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+              </button>
+              <div class="modal-dialog modal-lg modal-dialog-center" role="document">
+                <img src="<%= pin.photo %>" class='img-fluid rounded'>
+              </div>
+            </div>
 
 
-  <% end %>
+
+
+    <% end %>
+  </div>
+</div>
 
   <br>
   <% if user_signed_in? %>
