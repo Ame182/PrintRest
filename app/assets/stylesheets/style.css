@@ -6,3 +6,22 @@
 .col{
 	color: blue;
 }
+
+.log{
+	margin-left: 10px;
+	padding: 0;
+	display: inline;
+	height: 100%;
+}
+
+.btn-danger{
+	color: white;
+}
+
+.well {
+	padding: 20px;
+	height: 100%;
+	background-color: #dc3545;
+	border-radius: 10px;
+	color: white;
+}
